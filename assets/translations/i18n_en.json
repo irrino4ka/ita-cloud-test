@@ -1,0 +1,20 @@
+{
+  "Footer": {
+    "text": "SoftServe 2017 Cloud Configurator 2017"
+  },
+
+  "Header": {
+    "serviceConfigurationItem": "Service Configuration",
+    "administrationItem": "Administration",
+    "dashboardItem": "Dashboard"
+  },
+
+  "DropDown": {
+    "settingsItem": "Time Settings",
+    "languageItem": "Language Settings"
+  },
+
+  "Language": {
+    "item": "Select language:"
+  }
+}
