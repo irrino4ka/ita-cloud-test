@@ -1,0 +1,78 @@
+<div class="add_user_window">
+  <h2 class="add_user_window-header">Add User</h2>
+
+  <form [formGroup]="addForm" 
+        (ngSubmit)="onSubmit(addForm.value)">
+        
+    <div class="add_user_window-inner-div">
+      <div class="form_field">
+        <mat-form-field id="user">
+          <input matInput 
+                 placeholder="User Name" 
+                 name="user" 
+                 [formControl]="addForm.controls['user']">
+          <mat-error *ngIf="addForm.controls['user'].hasError('required')">
+            Name is 
+            <strong>required</strong>
+          </mat-error>
+          <mat-error *ngIf="addForm.controls['user'].hasError('pattern')">
+            Please enter valid name: only
+            <strong>A-Z</strong> symbols and
+            <strong>numbers</strong> are allowed.
+          </mat-error>
+          <mat-error *ngIf="addForm.controls['user'].hasError('minlength')">
+            Please enter 
+            <strong>5 or more</strong> symbols.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form_field">
+        <mat-form-field id="select">
+          <mat-select placeholder="User Role" 
+                      [formControl]="addForm.controls['role']">
+            <mat-option value="Admin">
+              Admin
+            </mat-option>
+            <mat-option value="Guest">
+              Guest
+            </mat-option>
+            <mat-option value="User">
+              User
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="form_field">
+        <mat-radio-group [formControl]="addForm.controls['status']">
+          <mat-radio-button value="Active">
+            Active
+          </mat-radio-button>
+          <mat-radio-button value="Disabled">
+            Disabled
+          </mat-radio-button>
+        </mat-radio-group>
+      </div>
+
+      <div class="form_field">
+            <input #fileInput type="file" 
+                   (change)="onChangeFile($event)" 
+                   accept="image/x-png,image/gif,image/jpeg"/>
+            <img src={{imageSrc}} />
+      </div>
+
+      <div mat-dialog-actions 
+           class="add_user_window-save-button">
+        <button class="button_right" 
+                mat-raised-button 
+                tabindex="2"
+                [disabled]="!addForm.valid"
+                >
+                Save
+        </button>
+      </div>
+
+    </div>
+  </form>
+
+</div>

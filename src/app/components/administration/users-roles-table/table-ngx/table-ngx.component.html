@@ -1,0 +1,147 @@
+<div class="user_table">
+  <div class = "user-table_buttons">
+    <p class="delete show" 
+       [ngClass]="setClassesShow()" 
+       (click)="openDialog()">
+        <i class="fa fa-trash-o fa-lg" 
+          aria-hidden="true">
+        </i>
+    </p>
+    <p class = "add-user" 
+      (click)="openAddDialog()">
+      <i class="fa fa-plus" 
+         aria-hidden="true"></i>
+    </p>
+  </div>
+  <ngx-datatable 
+    class="material" 
+    style="width: 90%" 
+    [rows]="rows" 
+    [columns]="columns" 
+    [headerHeight]="50" 
+    [footerHeight]="50"
+    [limit]="5" 
+    [rowHeight]="50" 
+    [selected]="selected" 
+    [selectionType]="'checkbox'" 
+    (select)='onSelect($event)'>
+    <ngx-datatable-column 
+      [width]="40"
+      [headerCheckboxable]="true" 
+      [checkboxable]="true" 
+      [sortable]="false" 
+      [canAutoResize]="false"
+      [draggable]="false" 
+      [resizeable]="false">
+      <ng-template 
+        ngx-datatable-header-template 
+        let-value="value" 
+        let-allRowsSelected="allRowsSelected" 
+        let-selectFn="selectFn">
+        <input 
+          type="checkbox" 
+          [checked]="allRowsSelected" 
+          (change)="selectFn(!allRowsSelected)" 
+        />
+      </ng-template>
+      <ng-template 
+        ngx-datatable-cell-template 
+        let-value="value" 
+        let-isSelected="isSelected" 
+        let-onCheckboxChangeFn="onCheckboxChangeFn"
+      >
+        <input 
+          type="checkbox" 
+          [checked]="isSelected" 
+          (change)="onCheckboxChangeFn($event)" 
+        />
+      </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column 
+      name="User"
+      [width]="250"
+      [cellClass]="getCellClass"
+      >
+      <ng-template 
+        ngx-datatable-cell-template 
+        let-rowIndex="rowIndex" 
+        let-value="value" 
+        let-row="row">
+          <span
+            title="Double click to edit"
+            (dblclick)="editing[rowIndex + '-user'] = true"
+            *ngIf="!editing[rowIndex + '-user']">
+            {{value}}
+          </span>
+          <input
+            autofocus
+            (blur)="updateValue($event, 'user', rowIndex, row.id)"
+            *ngIf="editing[rowIndex+ '-user']"
+            type="text"
+            [value]="value"
+            pattern="[\w ]+"
+            minlength="5"
+            required
+          />
+          <p [ngClass]="setClassValid(row.isInvalid)"
+             class="user_table-isinvalid">
+              <i matTooltip='{{textError}}' 
+                [matTooltipPosition]='"after"' 
+                class="fa fa-exclamation-circle user-table_alert" 
+                aria-hidden="true"></i>       
+          </p>
+           </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column 
+      name="Role">
+      <ng-template 
+        ngx-datatable-cell-template 
+        let-rowIndex="rowIndex" 
+        let-row="row" 
+        let-value="value">
+          <span
+           title="Double click to edit"
+           (dblclick)="editing[rowIndex + '-role'] = true"
+           *ngIf="!editing[rowIndex + '-role']">
+           {{value}}
+         </span>
+         <select
+           *ngIf="editing[rowIndex + '-role']"
+           (change)="updateValue($event, 'role', rowIndex, row.id)"
+           [value]="value">
+           <option value="User">User</option>
+           <option value="Guest">Guest</option>
+           <option value="Admin">Admin</option>
+         </select>
+       </ng-template>
+    </ngx-datatable-column>
+    <ngx-datatable-column 
+      prop="status" 
+      name="Account Status"
+      [cellClass]="getCellClass">
+      <ng-template 
+        let-row="row"
+        let-rowIndex="rowIndex" 
+        let-value="value"
+        ngx-datatable-cell-template>
+          <span 
+            [ngClass]="setClasses(row.status)" 
+            class="status">
+          </span>
+          <span
+          title="Double click to edit"
+          (dblclick)="editing[rowIndex + '-status'] = true"
+          *ngIf="!editing[rowIndex + '-status']">
+          {{value}}
+       </span>
+        <select
+          *ngIf="editing[rowIndex + '-status']"
+          (change)="updateValue($event, 'status', rowIndex, row.id)"
+          [value]="value">
+          <option value="Active">Active</option>
+          <option value="Disabled">Disabled</option>
+        </select>
+      </ng-template>
+    </ngx-datatable-column>
+  </ngx-datatable>
+</div>

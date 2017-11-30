@@ -1,0 +1,21 @@
+<mat-progress-bar mode="indeterminate" *ngIf=showSpinner></mat-progress-bar>
+<button mat-button color="accent"
+        routerLink="/administration/reporting">
+  Charts
+  <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+</button>
+<div class="container-fluid wrapper">
+  <div class="wrapper_chart d-flex justify-content-center">
+    <canvas class="chart"
+            baseChart
+            [datasets]="lineChartData"
+            [labels]="lineChartLabels"
+            [options]="lineChartOptions"
+            [legend]="lineChartLegend"
+            chartType="line">
+    </canvas>
+  </div>
+  <p>
+    <em>Users Count by resourse</em>
+  </p>
+</div>

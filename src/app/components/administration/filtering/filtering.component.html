@@ -1,0 +1,132 @@
+<div class="container">
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h2>Filtering Search</h2>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Time Range</h3>
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col">
+            <mat-toolbar>
+                <mat-button-toggle-group>
+                    <mat-button-toggle 
+                        (click)="setToday()" 
+                        value="today">
+                        <span>Today</span>
+                    </mat-button-toggle>
+                    <mat-button-toggle 
+                        (click)="set7Days()" 
+                        value="days7">
+                        <span>Last 7 days</span>
+                    </mat-button-toggle>
+                    <mat-button-toggle 
+                        (click)="setCustom()" 
+                        value="custom">
+                        <span>Custom range</span>
+                    </mat-button-toggle>
+                </mat-button-toggle-group>
+            </mat-toolbar>
+        </div>
+        <div class="col"></div>
+    </div>
+
+    <div class="row align-items-center"> 
+        <div class="col-md col-sm-12">
+            <span class="mat-headline">
+                From
+            </span>
+            <mat-form-field>
+                <input matInput [(ngModel)]="startDateValue"
+                    [formControl]="startDate"
+                    [matDatepicker]="startDatepicker" 
+                    placeholder="Choose a date" 
+                    [max]="endDateValue"
+                    [disableCond]="disabled">
+                <mat-datepicker-toggle matSuffix
+                    [for]="startDatepicker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #startDatepicker></mat-datepicker>
+                <mat-error *ngIf="startDate.invalid">
+                    {{getStartErrorMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md col-sm-12">
+            <span class="mat-headline">
+                To
+            </span>
+            <mat-form-field>
+                <input matInput [(ngModel)]="endDateValue"
+                    [formControl]="endDate"
+                    [matDatepicker]="endDatepicker" 
+                    placeholder="Choose a date" 
+                    [min]="startDateValue"
+                    [disableCond]="disabled">
+                <mat-datepicker-toggle matSuffix 
+                    [for]="endDatepicker">
+                </mat-datepicker-toggle>
+                <mat-datepicker #endDatepicker></mat-datepicker>
+                <mat-error *ngIf="endDate.invalid">
+                    {{getEndErrorMessage()}}
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row align-items-center">
+        <div class="col">
+            <h4>Filter by:</h4>
+        </div>
+        <div class="col offset-md-1">
+            <mat-toolbar>
+                <mat-checkbox 
+                    [(ngModel)]="filterItems[0].checked" 
+                    [value]="filterItems[0].value">
+                    Facebook
+                </mat-checkbox>
+                <mat-checkbox 
+                    [(ngModel)]="filterItems[1].checked" 
+                    [value]="filterItems[1].value">
+                    Github
+                </mat-checkbox>
+                <mat-checkbox 
+                    [(ngModel)]="filterItems[2].checked" 
+                    [value]="filterItems[2].value">
+                    Twitter
+                </mat-checkbox>
+            </mat-toolbar>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <button mat-raised-button
+                class="search"
+                (click)="submit()"
+                [disabled]="endDate.invalid || startDate.invalid">
+                <span class="mat-title">Search</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col">
+            <div *ngIf="searchOn">
+                <app-simple-table 
+                    [tableRows]="tableRows"
+                    [tableColumns]="tableColumns"
+                    [loadIndicator]="loadIndicator">
+                </app-simple-table>
+            </div>
+        </div>
+    </div>
+
+</div>
+

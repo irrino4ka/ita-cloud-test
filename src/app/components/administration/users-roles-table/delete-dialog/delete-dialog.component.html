@@ -1,0 +1,20 @@
+<p>Are you sure that you want to delete {{data.selected.length}} user(s)?:</p>
+<ul>
+  <li *ngFor="let element of data.selected">
+    {{ element.user }}
+  </li>
+</ul>
+<div mat-dialog-actions>
+  <button 
+    mat-button 
+    [mat-dialog-close]="data.selected" 
+    tabindex="2">
+    Ok
+  </button>
+  <button 
+    mat-button 
+    (click)="onNoClick()" 
+    tabindex="-1">
+    No Thanks
+  </button>
+</div>

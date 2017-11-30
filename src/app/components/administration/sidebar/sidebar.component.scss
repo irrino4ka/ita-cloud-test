@@ -1,0 +1,34 @@
+@import '../../colorscheme';
+
+.administration-container {
+  width:100%;
+  height:76vh;
+}
+
+.example-sidenav-content {
+  pointer-events:none;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+}
+
+.administration-sidenav {
+  border-right: 4px solid $color-base;
+  padding: 20px;
+  width:20%;
+  @media only screen and (max-width: 768px) {
+    width: 100%;
+  }
+
+  a {
+   color: $color-black;
+  }
+  .active {
+    color:$color-base;
+  }
+
+}
+
+
+

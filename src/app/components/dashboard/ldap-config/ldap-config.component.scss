@@ -1,0 +1,24 @@
+.mat-dialog-content {
+    height: 415px;
+}
+
+.mat-dialog-actions {
+    float: right
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.error-sign {
+    color: red;
+}
+
+.example-full-width {
+    width: 100%;
+}

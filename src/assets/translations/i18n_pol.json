@@ -1,0 +1,20 @@
+{
+  "Footer": {
+    "text": "SoftServe 2017 Chmura Konfigurator 2017"
+  },
+
+  "Header": {
+    "serviceConfigurationItem": "Usługa Konfiguracji",
+    "administrationItem": "Administracja",
+    "dashboardItem": "Paska Narzędzi"
+  },
+
+  "DropDown": {
+    "settingsItem": "Ustawienie czasu ",
+    "languageItem": "Ustawienie mova"
+  },
+
+  "Language": {
+    "item": "Zmień Język:"
+  }
+}

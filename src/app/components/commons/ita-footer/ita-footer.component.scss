@@ -1,0 +1,11 @@
+@import '../../colorscheme';
+footer {
+  position: absolute;
+  text-align: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  border-top: 2px solid $color-base;
+  padding: 5px;
+  color: $color-grey;
+}

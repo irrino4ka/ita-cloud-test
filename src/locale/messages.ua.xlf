@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="nav_serviceConfiguration" datatype="html">
+        <source>Service Configuration</source>
+        <target>Налаштування Сервісу</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/commons/ita-header/ita-header.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">Nav menu item</note>
+      </trans-unit>
+      <trans-unit id="nav_administration" datatype="html">
+        <source>Administration</source>
+        <target>Адміністрація</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/commons/ita-header/ita-header.component.ts</context>
+          <context context-type="linenumber">23</context>
+        </context-group>
+        <note priority="1" from="description">Nav menu item</note>
+      </trans-unit>
+      <trans-unit id="user_timeSettings" datatype="html">
+        <source>Time Settings</source>
+        <target>Налаштування Часу</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/commons/ita-header/email/dropdown-basic.component.ts</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">User time settings</note>
+      </trans-unit>
+      <trans-unit id="user_language" datatype="html">
+        <source>Language</source>
+        <target>Мова</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">app/commons/ita-header/email/dropdown-basic.component.ts</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+        <note priority="1" from="description">User language settings</note>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,51 @@
+<mat-progress-bar mode="indeterminate" *ngIf=showSpinner></mat-progress-bar>
+
+<div class="container-fluid mt-5 user_byte_size_wrapper">
+<div class=" row">
+  <div class="col-md-6">
+    <button mat-button color="accent"
+            class="mb-2"
+            routerLink="/administration/reporting">
+     Charts
+     <i class="fa fa-long-arrow-left" aria-hidden="true"></i>
+    </button>
+    <div style="display: block user_byte_chart">
+      <canvas baseChart
+              [datasets]="barChartData"
+              [labels]="barChartLabels"
+              [options]="barChartOptions"
+              [legend]="barChartLegend"
+              chartType="bar">
+      </canvas>
+    </div>
+    <p><em>Top-10  users  by traffic waste</em></p>
+  </div>
+  <div class="col-md-6 user_byte_size_table">
+
+    <mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="user">
+        <mat-header-cell *matHeaderCellDef> Users </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.user}} </mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="resource">
+        <mat-header-cell *matHeaderCellDef> Resource </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.resource}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="byte">
+        <mat-header-cell *matHeaderCellDef> Byte </mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.byte}} </mat-cell>
+      </ng-container>
+
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+
+  </div>
+
+ </div>
+</div>
+
+
+

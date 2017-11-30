@@ -1,0 +1,20 @@
+{
+  "Footer": {
+    "text": "SoftServe 2017 Хмара Конфігурацій 2017"
+  },
+
+  "Header": {
+    "serviceConfigurationItem": "Сервіс Конфігурацій",
+    "administrationItem": "Адміністрація",
+    "dashboardItem": "Панель"
+  },
+
+  "DropDown": {
+    "settingsItem": "Налаштування часу",
+    "languageItem": "Налаштування мови"
+  },
+
+  "Language": {
+    "item": "Обрати мову:"
+  }
+}

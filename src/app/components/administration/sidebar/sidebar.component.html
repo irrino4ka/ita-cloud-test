@@ -1,0 +1,26 @@
+<mat-sidenav-container class="administration-container">
+
+  <button type="button" (click)="sidenav.open()" class="sidebar_btn m-3">
+    <i class="fa fa-2x fa-bars" aria-hidden="true"></i>
+  </button>
+
+  <mat-sidenav #sidenav class="administration-sidenav">
+
+    <button type="button"
+            class="sidebar_btn"
+            (click)="sidenav.close()">
+      <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+    </button>
+
+    <a class="nav-link" *ngFor='let item of sidebarMenu'
+       [routerLink]='item.link'
+       routerLinkActive="active">
+      <i [class]='item.ico' aria-hidden="true"></i>
+     {{item.title}}
+    </a>
+
+  </mat-sidenav>
+
+  <router-outlet></router-outlet>
+
+</mat-sidenav-container>

@@ -1,0 +1,56 @@
+$status_active: #6ce371;
+$status_disabled: #b7bab7;
+$alert:  #e44a3f;
+
+.status {
+    width: 9px;
+    height: 9px;
+    display: inline-block;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+.active-user {
+    background-color: $status_active;
+}
+
+.inactive-user {
+    background-color: $status_disabled;
+}
+.delete {
+    text-align: right;
+    position: relative;
+    float: right;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+
+.show {
+    visibility: visible;
+}
+.hide {
+    visibility: hidden;
+} 
+
+.user-table{
+    line-height: 30px;
+}
+
+.add-user{
+    text-align: right;
+    position: relative;
+    padding-right: 4px;
+    float: right;
+    margin-bottom: 3px;
+    cursor: pointer;
+}
+.user-table_buttons{
+    width: 90%;
+}
+
+.user-table_alert {
+    color: $alert;
+    cursor: pointer;
+}
+.user_table-isinvalid {
+    display: inline;
+}

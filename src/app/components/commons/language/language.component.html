@@ -1,0 +1,12 @@
+
+ <p class="text-center mt-5">{{ 'Language.item' | translate }}</p>
+ <div class="row d-flex justify-content-center">
+
+  <select #langSelect (change)="translate.use(langSelect.value)"
+   class=" form-control col-md-5 mt-5">
+    <option *ngFor="let lang of translate.getLangs()"
+     [value]="lang"
+     [selected]="lang === translate.currentLang">{{ lang }}</option>
+  </select>
+</div>
+

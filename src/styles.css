@@ -1,0 +1,57 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';
+
+h1 {
+    color: #369;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 250%;
+}
+
+h2,
+h3 {
+    color: #444;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: lighter;
+}
+
+body {
+    margin: 2em;
+}
+
+body,
+input[text],
+button {
+    color: #888;
+    font-family: Cambria, Georgia;
+}
+
+
+/* everywhere else */
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  margin-bottom: 60px;
+}
+
+.mat-dialog-container {
+  border: 2px solid #f0ad4e!important;
+}
+
+div.tooltip-inner {
+  max-width: 200px;
+  padding: 3px 8px;
+  text-align: center;
+  background-color: rgb(216, 213, 213);
+  border: 1px solid red;
+  border-radius: .25rem;
+}

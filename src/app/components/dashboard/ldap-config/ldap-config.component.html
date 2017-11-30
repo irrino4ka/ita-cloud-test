@@ -1,0 +1,97 @@
+<div matDialogTitle>{{title}}</div>
+<div mat-dialog-content>
+    <form 
+        (ngSubmit)="onSubmit()" 
+        [formGroup]="ldapConfigForm" 
+        id="ldapConfigForm">
+        <div class="row">
+            <label for="inputLdapName" class="col-sm-4 col-form-label">LDAP Name</label>
+            <div class="col-sm-7">
+                <mat-form-field class="example-full-width">
+                    <input 
+                        type="text" 
+                        matInput id="inputLdapName" 
+                        formControlName="ldapName" 
+                        (input)="checkNameValidity()" 
+                        [ngbTooltip]="tooltipNameErrorContent" 
+                        container="body" 
+                        triggers="manual" 
+                        placement="right" 
+                        #nameErrorTooltip="ngbTooltip">
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="row">
+            <label for="inputLdapHosts" class="col-sm-4 col-form-label">Host(s)</label>
+            <div class="col-sm-7">
+                <mat-form-field class="example-full-width">
+                    <input 
+                        type="text" 
+                        matInput id="inputLdapHosts" 
+                        formControlName="hosts"
+                        [ngbTooltip]="tooltipHostsErrorContent" 
+                        container="body" 
+                        triggers="manual" 
+                        placement="right" 
+                        #hostsErrorTooltip="ngbTooltip">
+                </mat-form-field>
+            </div>
+        </div>
+        <mat-radio-group 
+            formControlName="authStatus" 
+            (change)="onAuthStatusChange($event)">
+                <mat-radio-button value="false" checked="true">Anonymous</mat-radio-button>
+                <mat-radio-button value="true">Use Password</mat-radio-button>
+        </mat-radio-group>
+        <div *ngIf="displayAuthInfo" formGroupName="authorizationInfo">
+            <div class="row">
+                <label for="inputUser" class="col-sm-4 col-form-label">User</label>
+                <div class="col-sm-7">
+                    <mat-form-field class="example-full-width">
+                        <input 
+                            type="text" 
+                            matInput id="inputUser" 
+                            formControlName="user">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div class="row">
+                <label for="inputPassword" class="col-sm-4 col-form-label">Password</label>
+                <div class="col-sm-7">
+                    <mat-form-field class="example-full-width">
+                        <input 
+                            type="password" 
+                            matInput 
+                            id="inputPassword" 
+                            formControlName="password">
+                    </mat-form-field>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2">
+                <label for="filePicker" class="btn btn-outline-secondary">Upload</label>
+                <input 
+                    type="file" 
+                    id="filePicker" 
+                    name="filePicker" 
+                    accept="image/*" 
+                    class="inputfile" 
+                    (change)="handleFileSelect($event)">
+            </div>
+            <div class="offset-sm-2 col-sm-6">
+                <img *ngIf="imagePath" class="img-thumbnail rounded w-100" [src]="imagePath" />
+            </div>
+        </div>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <div class="row">
+        <div class="col-sm-2">
+            <button 
+                type="submit" 
+                form="ldapConfigForm" 
+                class="btn btn-outline-warning">Sign in</button>
+        </div>
+    </div>
+</div>
